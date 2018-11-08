@@ -31,7 +31,23 @@
     </style>
 
     <script type="text/javascript">
-
+        function display(x) {
+            let s = document.getElementById("one");
+            let f = document.getElementById("two");
+            if (x=="smiley") {
+                s.style.color = "red";
+                s.style.fontSize = "2em";
+                s.style.fontFamily = "Ludcia Handwriting";
+                s.style.backgroundColor = "yellow";
+            }
+            if (x=="frown") {
+                f.style.color = "green";
+                f.style.fontSize = "2em";
+                f.style.fontFamily = "Arial";
+                f.style.backgroundColor = "blue";
+            }
+            return false;
+        }
     </script>
 </head>
 
@@ -49,12 +65,12 @@
 
     <table>
         <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
+            <td><img onclick="return display(this.id)" id="smiley" src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
+            <td id="one">Web Tech Rocks!</td>
         </tr>
         <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
+            <td><img onclick="return display(this.id)" id="frown" src="frown.jpg" alt="Frown Face" title="Sad"></td>
+            <td id="two">Web Tech Sucks!</td>
         </tr>
 
     </table>

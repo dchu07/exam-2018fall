@@ -30,6 +30,31 @@
             text-align: left;
         }
     </style>
+
+    <script type="text/javascript">
+        function cal() {
+            let myForm = document.getElementById("form1");
+            let f = myForm.from.value;
+            let t = myForm.to.value;
+            let result = 1;
+            if ((f == "") && (t == "")) {
+                alert("All Field Must be Filled in")
+            }
+            else if ((isNaN(f)) || (isNaN(t))) {
+                alert("You did not enter a valid input");
+            }
+            else if (f <= 0) {
+                alert("The first number must be greater than 0");
+            }
+            else if ((f != "") && (t != "")) {
+                for (let i = parseInt(f); i <= parseInt(t); i++) {
+                    result *= i;
+                }
+                document.getElementById("results").innerHTML = result;
+            }
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -41,15 +66,16 @@
         For full points, you need to validate the inputs properly. (5 points)
 
     </p>
-    <form>
+    <form id="form1">
         <p>
-            From: <input type="text" name="from" size="10"/> To: <input type="text" name="to" size="10">
+            From: <input type="text" name="from" size="10"/>
+            To: <input type="text" name="to" size="10">
         </p>
         <p>
-            <input type="submit" name="calc" value="Calculate">
+            <input onclick = "return cal()" type="submit" name="calc" value="Calculate">
             <input type="reset" name="reset" value="CLEAR">
         </p>
-        <p>The product is .</p>
+        <p>The product is <span id="results"></span>.</p>
     </form>
 
 </body>
