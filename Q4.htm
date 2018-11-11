@@ -37,8 +37,10 @@
             
             document.getElementById("di1").innerHTML = d1;
             document.getElementById("di2").innerHTML = d2;
+            moves = d1+d2
+            loc = moves + loc
 
-            document.getElementById("results").innerHTML = squares[loc + d1 + d2];
+            document.getElementById("results").innerHTML = squares[loc];
 
         }
     </script>
